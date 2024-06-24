@@ -8,11 +8,10 @@ data class SuperheroResponse (
 
 }
 data class Superhero(
-    @SerializedName("name") val name: String){
-
+    @SerializedName("name") val name: String,
+    @SerializedName("image") val image: Image){
     }
-    @SerializedName("image") val image:Image){
-}
+
 data class Image(
     @SerializedName("url") val url: String){
 
