@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="16dp"
         >
         <FrameLayout
             android:layout_width="match_parent"
@@ -18,6 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/superHeroImageView"
+
                 />
             <TextView
                 android:id="@+id/superHeroTextView"
@@ -25,7 +26,11 @@
                 android:layout_height="wrap_content"
                 android:text="SUPERMAN"
                 android:textSize="24sp"
+                android:textColor="@color/white"
                 android:textAlignment="center"
+
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@color/transparent_gray"
                 />
 
         </FrameLayout>
