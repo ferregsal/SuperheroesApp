@@ -9,8 +9,18 @@ data class SuperheroResponse (
 }
 data class Superhero(
     @SerializedName("name") val name: String,
-    @SerializedName("image") val image: Image){
+    @SerializedName("image") val image: Image,
+    @SerializedName("id") val id : String,
+    @SerializedName("biography") val biography: Biography
+
+){
     }
+
+data class Biography(
+    @SerializedName("full-name") val realName: String,
+) {
+
+}
 
 data class Image(
     @SerializedName("url") val url: String){
