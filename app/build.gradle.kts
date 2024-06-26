@@ -56,4 +56,7 @@ dependencies {
 
     //Picasso
     implementation ("com.squareup.picasso:picasso:2.8")
+
+    //AbilityChart
+   // implementation("com.gao.jiefly:abilitychartlibrary:1.0.1")
 }

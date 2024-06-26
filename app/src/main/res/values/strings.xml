@@ -2,4 +2,8 @@
     <string name="app_name">SuperheroesApp</string>
     <string name="menu_search">Search</string>
     <string name="menu_favorite">Favorite</string>
+    <string name="error_invalid_id">Invalid ID</string>
+    <string name="error_no_data">Error No Data</string>
+    <string name="error_fetching_data">Error Fetching Data</string>
+
 </resources>

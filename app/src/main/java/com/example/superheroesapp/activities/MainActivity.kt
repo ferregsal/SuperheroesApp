@@ -21,6 +21,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
+
 class MainActivity : AppCompatActivity() {
 private lateinit var binding: ActivityMainBinding
 private lateinit var adapter: SuperheroAdapter
