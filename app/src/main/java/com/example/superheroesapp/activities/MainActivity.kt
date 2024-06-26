@@ -3,6 +3,7 @@ package com.example.superheroesapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -75,6 +76,8 @@ private lateinit var superheroList:List<Superhero>
 
     }
     private fun navigateToDetail(superhero: Superhero) {
+        Log.d("MainActivity", "Navigating to detail for superhero: ${superhero.name}, ID: ${superhero.id}")
+
         Toast.makeText(this, superhero.name, Toast.LENGTH_SHORT).show()
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_SUPERHERO_ID, superhero.id)
@@ -89,15 +92,17 @@ private lateinit var superheroList:List<Superhero>
                     if (result.response == "success") {
                         superheroList = result.results
                         adapter.updateData(superheroList)
+                        Log.d("MainActivity", "Superheroes found: ${superheroList.size}")
                     } else {
                         adapter.updateData(emptyList())
-
+                        Log.d("MainActivity", "No superheroes found")
                     }
                 }
             }
             catch (e:Exception){
 
                 e.printStackTrace()
+                Log.e("MainActivity", "Error fetching superheroes", e)
             }
         }
     }

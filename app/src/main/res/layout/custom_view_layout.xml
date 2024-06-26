@@ -17,13 +17,26 @@
             android:textSize="24sp"
             android:textColor="@color/white"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="10dp"
-            android:text="Your desire text"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:clipChildren="false"
+            android:layout_gravity="center"
+            >
+
+            <me.panpf.swsv.SpiderWebScoreView
+                android:id="@+id/statsSpiderWeb"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center" />
+
+            <me.panpf.swsv.CircularLayout
+                android:id="@+id/layout_mainActivity_circular1"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:clipChildren="false"/>
+        </FrameLayout>
 
 
     </LinearLayout>

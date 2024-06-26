@@ -59,4 +59,7 @@ dependencies {
 
     //AbilityChart
    // implementation("com.gao.jiefly:abilitychartlibrary:1.0.1")
+    dependencies{
+        implementation("io.github.panpf.spiderwebscoreview:spiderwebscoreview:1.0.1")
+    }
 }

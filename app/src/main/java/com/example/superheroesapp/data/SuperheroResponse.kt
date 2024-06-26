@@ -11,11 +11,21 @@ data class Superhero(
     @SerializedName("name") val name: String,
     @SerializedName("image") val image: Image,
     @SerializedName("id") val id : Int,
-    @SerializedName("biography") val biography: Biography
-
+    @SerializedName("biography") val biography: Biography,
+    @SerializedName("powerstats") val stats: Powerstats
 ){
     }
+data class Powerstats(
+    @SerializedName("intelligence") val intelligence: Int,
+    @SerializedName("strength") val strength: Int,
+    @SerializedName("speed") val speed: Int,
+    @SerializedName("durability") val durability: Int,
+    @SerializedName("power") val power: Int,
+    @SerializedName("combat") val combat: Int,
 
+) {
+
+}
 data class Biography(
     @SerializedName("full-name") val realName: String,
     @SerializedName("alter-egos") val alterEgos: String,
