@@ -1,5 +1,7 @@
 package com.example.superheroesapp.activities
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.superheroesapp.R
@@ -21,7 +23,6 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,7 +44,19 @@ class DetailActivity : AppCompatActivity() {
                 val result = superheroApiService.getSuperheroById(superheroId)
                 runOnUiThread {
                     binding.nameDetailTextView.text = result.name
-                    binding.biographyTextView.text = result.biography.toString()
+                    binding.fullNameTextView.text = "Real Name: \n${result.biography.realName}"
+                    binding.alignmentTextView.text = "Alignment: \n${result.biography.alignment}"
+                   when (result.biography.alignment){
+                       "good" -> binding.alignmentTextView.setTextColor(ColorStateList.valueOf(Color.BLUE))
+                       "bad" -> binding.alignmentTextView.setTextColor(ColorStateList.valueOf(Color.RED))
+                   }
+
+                    binding.alterEgosTextView.text ="Alter Egos: \n${result.biography.alterEgos}"
+                    binding.aliasesTextView.text = "Aliases: \n${result.biography.aliases.joinToString("\n")}"
+                    binding.placeOfBirthTextView.text = "Place of Origin: \n${result.biography.placeOfBirth}"
+                    binding.firstAppearanceTextView.text = "First Appearance: \n${result.biography.firstAppearance}"
+                    binding.publisherTextView.text = "Publisher: \n${result.biography.publisher}"
+
                     Picasso.get().load(result.image.url).into(binding.avatarDetailImageView)
                 }
             } catch (e: Exception) {

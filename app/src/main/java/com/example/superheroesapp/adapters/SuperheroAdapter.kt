@@ -32,7 +32,9 @@ class SuperheroViewHolder(private val binding: ItemSuperheroBinding) : RecyclerV
 
     fun render(superhero: Superhero) {
         binding.superHeroTextView.text = superhero.name
+       // binding.biographyTextView.text = superhero.biography.realName
         Picasso.get().load(superhero.image.url).into(binding.superHeroImageView)
+
     }
 }
 }

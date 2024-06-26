@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.superheroesapp.R
@@ -21,9 +22,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
-lateinit var binding: ActivityMainBinding
-lateinit var adapter: SuperheroAdapter
-var superheroList:List<Superhero> = emptyList()
+private lateinit var binding: ActivityMainBinding
+private lateinit var adapter: SuperheroAdapter
+private lateinit var superheroList:List<Superhero>
   //  var showFavorites = false
   //  lateinit var favoritesMenu: MenuItem
 
@@ -57,6 +58,8 @@ var superheroList:List<Superhero> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        superheroList = emptyList()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         adapter= SuperheroAdapter(superheroList){ position ->
@@ -70,7 +73,12 @@ var superheroList:List<Superhero> = emptyList()
 
 
     }
-
+    private fun navigateToDetail(superhero: Superhero) {
+        Toast.makeText(this, superhero.name, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_SUPERHERO_ID, superhero.id)
+        startActivity(intent)
+    }
     private fun searchByName (query: String){
         CoroutineScope(Dispatchers.IO).launch {
             try{
@@ -94,11 +102,7 @@ var superheroList:List<Superhero> = emptyList()
     }
 
 
-    fun navigateToDetail(superhero: Superhero) {
-        val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(DetailActivity.EXTRA_SUPERHERO_ID, superhero.id)
-        startActivity(intent)
-    }
+
 }
 
 /* override fun onOptionsItemSelected(item: MenuItem): Boolean {
