@@ -7,6 +7,7 @@ android {
     namespace = "com.example.superheroesapp"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.example.superheroesapp"
         minSdk = 26
@@ -61,5 +62,9 @@ dependencies {
    // implementation("com.gao.jiefly:abilitychartlibrary:1.0.1")
     dependencies{
         implementation("io.github.panpf.spiderwebscoreview:spiderwebscoreview:1.0.1")
+        implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
     }
+
+
 }
