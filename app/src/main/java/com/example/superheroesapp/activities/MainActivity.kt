@@ -69,7 +69,7 @@ private lateinit var superheroList:List<Superhero>
         }
 
         binding.superHeroRecyclerView.adapter = adapter
-        binding.superHeroRecyclerView.layoutManager=GridLayoutManager(this, 2)
+        binding.superHeroRecyclerView.layoutManager=GridLayoutManager(this, 1)
         searchByName("a")
 
 
